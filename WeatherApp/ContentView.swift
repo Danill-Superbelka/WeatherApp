@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    let weather = APIService()
-    
-    
     var body: some View {
+        
         Text("Hello, world!")
             .padding()
+        
     }
 }
 
