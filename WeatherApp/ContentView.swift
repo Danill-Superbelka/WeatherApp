@@ -33,6 +33,13 @@ struct ContentView: View {
     
     func getWeatherForecast(for location: String) {
         let apiService = APIService.shared
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, MMM, d"
+        CLGeocoder().geocodeAddressString("Paris") {placemarks, error} in
+        if let error = error {
+            print(error.localizedDescription)
+        }
+        
         
     }
 }
