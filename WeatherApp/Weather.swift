@@ -52,6 +52,3 @@ struct WeatherForecast: Codable {
 
 let weather = APIService.shared
 
-weather.getJSON(stringURL: "https://api.openweathermap.org/data/2.5/onecall?lat=59.934256&lon=30.335123&exclude=current,minutely,hourly,alerts&appid=38b4a54648c28f3f6c543eef683881cd") { result: Result<WeatherForecast,APIService.APIError> in
-    <#code#>
-}
