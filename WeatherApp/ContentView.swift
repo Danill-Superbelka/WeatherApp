@@ -30,9 +30,16 @@ struct ContentView: View {
                     }
                 }
                 if let forecast = forecast {
+                    VStack{
+                        List(forecast.hourly, id: \.dt) { hour in
+                            Text("Час")
+                        }
+                    }
                     List(forecast.daily, id: \.dt) { day in
                         Text("\(dateFormatter.string(from:  day.dt))")
+                            .fontWeight(.bold)
                     }
+                    .listStyle(PlainListStyle())
                 } else {
                     Spacer()
                 }
