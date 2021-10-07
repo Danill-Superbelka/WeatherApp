@@ -46,7 +46,7 @@ struct WeatherForecast: Codable {
         let weather: [Weather]
     }
     
-    let hourly: Hourly
+    let hourly: [Hourly]
     let daily: [Daily]
 }
 

@@ -10,6 +10,12 @@ import CoreLocation
 
 struct ContentView: View {
     @State private var location = " "
+    @State var forecast: WeatherForecast? = nil
+    let dateFormatter = DateFormatter()
+    
+    init(){
+        dateFormatter.dateFormat = "E, MMM, d"
+    }
     var body: some View {
         NavigationView {
             VStack {
@@ -23,7 +29,13 @@ struct ContentView: View {
                             .font(.title3)
                     }
                 }
-                Spacer()
+                if let forecast = forecast {
+                    List(forecast.daily, id: \.dt) { day in
+                        Text("\(dateFormatter.string(from:  day.dt))")
+                    }
+                } else {
+                    Spacer()
+                }
             }
             .padding(.horizontal)
             .navigationTitle("Погода")
@@ -33,21 +45,17 @@ struct ContentView: View {
     
     func getWeatherForecast(for location: String) {
         let apiService = APIService.shared
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "E, MMM, d"
         CLGeocoder().geocodeAddressString(location) { (placemark, error) in
             if let error = error {
                 print("Ошибка:", error.localizedDescription)
             }
             if let lat = placemark?.first?.location?.coordinate.latitude,
                let lon = placemark?.first?.location?.coordinate.longitude {
-                apiService.getJSON(stringURL: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=current,minutely,hourly,alerts&appid=38b4a54648c28f3f6c543eef683881cd") {
+                apiService.getJSON(stringURL: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=current,minutely,alerts&appid=38b4a54648c28f3f6c543eef683881cd") {
                     (result: Result<WeatherForecast, APIService.ApiError>) in
                     switch result {
                     case .success(let forecast):
-                        for day in forecast.daily {
-                            print(dateFormatter.string(from: day.dt))
-                        }
+                        self.forecast = forecast
                     case .failure(let apiError):
                         print(apiError)
                     }
