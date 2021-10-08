@@ -30,14 +30,23 @@ struct ContentView: View {
                     }
                 }
                 if let forecast = forecast {
-                    VStack{
-                        List(forecast.hourly, id: \.dt) { hour in
-                            Text("Час")
-                        }
-                    }
                     List(forecast.daily, id: \.dt) { day in
                         Text("\(dateFormatter.string(from:  day.dt))")
                             .fontWeight(.bold)
+                        HStack(alignment: .top){
+                            Image(systemName: "hourglass")
+                                .font(.title)
+                                .frame(width: 50, height: 50)
+                                .background(RoundedRectangle(cornerRadius: 10).fill(Color.green))
+                            VStack(alignment: .leading){
+                                Text("Погода")
+                                Text("Max:")
+                                Text("Min:")
+                                Text("Облачность:")
+                                Text("Влажность:")
+                                
+                            }
+                        }
                     }
                     .listStyle(PlainListStyle())
                 } else {

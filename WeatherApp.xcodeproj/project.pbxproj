@@ -15,6 +15,7 @@
 		A54F1B902705D42F0024405E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A54F1B8E2705D42F0024405E /* LaunchScreen.storyboard */; };
 		A54F1B9827072CAC0024405E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F1B9727072CAC0024405E /* APIService.swift */; };
 		A54F1B9A27072CD10024405E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F1B9927072CD10024405E /* Weather.swift */; };
+		A5AD8DC927103487001A9DEC /* WeatherForecastVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD8DC827103487001A9DEC /* WeatherForecastVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A54F1B912705D42F0024405E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A54F1B9727072CAC0024405E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		A54F1B9927072CD10024405E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		A5AD8DC827103487001A9DEC /* WeatherForecastVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A54F1B832705D4270024405E /* AppDelegate.swift */,
 				A54F1B852705D4270024405E /* SceneDelegate.swift */,
 				A54F1B872705D4270024405E /* ContentView.swift */,
+				A5AD8DC827103487001A9DEC /* WeatherForecastVM.swift */,
 				A54F1B9727072CAC0024405E /* APIService.swift */,
 				A54F1B9927072CD10024405E /* Weather.swift */,
 				A54F1B892705D42F0024405E /* Assets.xcassets */,
@@ -153,6 +156,7 @@
 			files = (
 				A54F1B842705D4270024405E /* AppDelegate.swift in Sources */,
 				A54F1B862705D4270024405E /* SceneDelegate.swift in Sources */,
+				A5AD8DC927103487001A9DEC /* WeatherForecastVM.swift in Sources */,
 				A54F1B9827072CAC0024405E /* APIService.swift in Sources */,
 				A54F1B882705D4270024405E /* ContentView.swift in Sources */,
 				A54F1B9A27072CD10024405E /* Weather.swift in Sources */,
