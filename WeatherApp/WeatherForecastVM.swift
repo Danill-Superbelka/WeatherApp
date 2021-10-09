@@ -7,6 +7,11 @@
 
 import Foundation
 
+func convert(_ temp: Double) -> Double {
+    let celsius = temp - 273.5
+    return celsius
+}
+
 struct WeatherForecastDayliVM {
     let forecast: WeatherForecast.Daily
     
@@ -28,21 +33,22 @@ struct WeatherForecastDayliVM {
         return numberFormatterPercent
     }
     
+    
     var day: String {
         return Self.dateFormatter.string(from: forecast.dt)
     }
     
     var high: String {
-        return "↑ \(Self.numberFormatter.string(for: forecast.temp.max) ?? "0")°"
+        return "↑ \(Self.numberFormatter.string(for: convert(forecast.temp.max)) ?? "0")°"
         
     }
     
     var low: String {
-        return "↓ \(Self.numberFormatter.string(for: forecast.temp.min) ?? "0")°"
+        return "↓ \(Self.numberFormatter.string(for: convert(forecast.temp.min)) ?? "0")°"
     }
     
     var feels: String {
-        return "\(Self.numberFormatter.string(for: forecast.feels_like.day) ?? "0")°"
+        return "\(Self.numberFormatter.string(for: convert(forecast.feels_like.day)) ?? "0")°"
     }
 }
 
@@ -72,10 +78,10 @@ struct WeatherForecastHourlyVM {
     }
     
     var temp: String{
-        return "\(Self.numberFormatter.string(for: forecast.temp) ?? "0")°"
+        return "\(Self.numberFormatter.string(for: convert(forecast.temp)) ?? "0")°"
     }
     
     var feels: String{
-        return "\(Self.numberFormatter.string(for: forecast.feels_like) ?? "0")°"
+        return "\(Self.numberFormatter.string(for: convert(forecast.feels_like)) ?? "0")°"
     }
 }

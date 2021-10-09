@@ -31,9 +31,10 @@ struct ContentView: View {
                             .frame(width: 50, height: 50)
                             .background(RoundedRectangle(cornerRadius: 10).fill(Color.green))
                         VStack(alignment: .leading){
-                            Text("Погода")
-                            Text("Max:")
-                            Text("Min:")
+                            HStack{
+                            Text("\(day.high)")
+                            Text("\(day.low)")
+                            }
                             Text("Облачность:")
                             Text("Влажность:")
                             
@@ -41,9 +42,11 @@ struct ContentView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
-            }             }
-        .padding(.horizontal)
-        .navigationTitle("Погода")
+            }
+            
+        }
+        .padding()
+        .navigationTitle("\(forecastListVM.location)")
         
     }
 }

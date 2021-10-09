@@ -7,11 +7,18 @@
 
 import Foundation
 import CoreLocation
+import SwiftUI
 
 class ForecastListVM: ObservableObject {
     
     @Published var forecast: [WeatherForecastDayliVM] = []
-    var location = " "
+    @AppStorage("location") var location = " "
+    
+    init() {
+        if location != "" {
+            getWeatherForecast()
+        }
+    }
     
     func getWeatherForecast() {
         let apiService = APIService.shared
