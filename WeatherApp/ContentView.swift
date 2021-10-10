@@ -28,6 +28,12 @@ struct ContentView: View {
                         .fontWeight(.bold)
                     HStack(alignment: .top){
                         WebImage(url: day.weatherIconUrl)
+                            .resizable()
+                            .placeholder{
+                                Image(systemName:"hourglass")
+                            }
+                            .scaledToFit()
+                            .frame(width: 75)
                         VStack(alignment: .leading){
                             HStack{
                             Text("\(day.high)")
