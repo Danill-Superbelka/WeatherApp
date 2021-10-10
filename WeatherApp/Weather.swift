@@ -10,10 +10,6 @@ import Foundation
 struct Weather: Codable {
     let id: Int
     let icon: String
-    var weatherIconUrl: URL {
-    let imageURL = "http://openweathermap.org/img/wn/\(icon)@2x.png"
-        return URL(string: imageURL)!
-        }
 }
 
 struct WeatherForecast: Codable {

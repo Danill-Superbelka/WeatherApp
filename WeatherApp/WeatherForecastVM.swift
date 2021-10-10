@@ -50,6 +50,12 @@ struct WeatherForecastDayliVM {
     var feels: String {
         return "\(Self.numberFormatter.string(for: convert(forecast.feels_like.day)) ?? "0")°"
     }
+    
+    var weatherIconUrl: URL {
+        let imageURL = "https://openweathermap.org/img/wn/\(forecast.weather[0].icon)@2x.png"
+        return URL(string: imageURL)!
+        }
+
 }
 
 struct WeatherForecastHourlyVM {
@@ -84,4 +90,10 @@ struct WeatherForecastHourlyVM {
     var feels: String{
         return "\(Self.numberFormatter.string(for: convert(forecast.feels_like)) ?? "0")°"
     }
+    
+    var weatherIconUrl: URL {
+    let imageURL = "https://openweathermap.org/img/wn/\(forecast.weather[0].icon)@2x.png"
+        return URL(string: imageURL)!
+        }
+
 }
