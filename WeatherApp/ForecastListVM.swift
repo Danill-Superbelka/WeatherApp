@@ -17,7 +17,7 @@ class ForecastListVM: ObservableObject {
     
     @Published var forecast: [WeatherForecastDayliVM] = []
     var appError: AppError? = nil
-    @Published var isLoading: Bool = true
+    @Published var isLoading: Bool = false
     @AppStorage("location") var location = " "
     
     init() {
@@ -27,9 +27,11 @@ class ForecastListVM: ObservableObject {
     }
     
     func getWeatherForecast() {
+        isLoading = true
         let apiService = APIService.shared
         CLGeocoder().geocodeAddressString(location) { (placemark, error) in
             if let error = error {
+                self.isLoading = false
                 self.appError = AppError(errorString: error.localizedDescription)
                 print("Ошибка:", error.localizedDescription)
             }
@@ -39,10 +41,12 @@ class ForecastListVM: ObservableObject {
                     (result: Result<WeatherForecast, APIService.ApiError>) in
                     switch result {
                     case .success(let forecast):
+                        self.isLoading = false
                         DispatchQueue.main.async {
                             self.forecast = forecast.daily.map {WeatherForecastDayliVM(forecast: $0)}
                         }
                     case .failure(let apiError):
+                        self.isLoading = false
                         self.appError = AppError(errorString: apiError.localizedDescription)
                         print(apiError)
                     }
