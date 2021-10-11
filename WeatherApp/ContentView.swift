@@ -14,6 +14,7 @@ struct ContentView: View {
         ZStack{
             NavigationView {
                 VStack {
+                    
                     HStack {
                         TextField("Город", text: $forecastListVM.location,
                                   onCommit: {
