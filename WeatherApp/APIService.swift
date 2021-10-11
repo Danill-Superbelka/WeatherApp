@@ -14,7 +14,10 @@ public class APIService {
    public enum ApiError: Error {
         case error(_ errorString: String)
     }
-   public func getJSON<T: Decodable>(stringURL: String, completion: @escaping (Result<T,ApiError>) -> Void) {
+    public func getJSON<T: Decodable>(stringURL: String,
+                                      dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate,
+                                      keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys,
+                                      completion: @escaping (Result<T,ApiError>) -> Void) {
         guard let url = URL(string: stringURL) else {
             print("Ошибка получения URL адреса")
             return
@@ -25,9 +28,11 @@ public class APIService {
             guard let data = data else {
                 print("Ошибка получения данных")
                 return
-                
             }
+            
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = dateDecodingStrategy
+            decoder.keyDecodingStrategy = keyDecodingStrategy
             do {
                 let forecast = try decoder.decode(T.self, from: data)
                 completion(.success(forecast))

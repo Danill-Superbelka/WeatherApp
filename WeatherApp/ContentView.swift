@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 struct ContentView: View {
     @StateObject private var forecastListVM = ForecastListVM()
     var body: some View {
+        ZStack{
         NavigationView {
             VStack {
                 HStack {
@@ -47,10 +48,18 @@ struct ContentView: View {
                 }
                 .listStyle(PlainListStyle())
             }
-            
         }
         .padding()
         .navigationTitle("\(forecastListVM.location)")
+        .alert(item: $forecastListVM.appError) { appAlert in
+            Alert(title: Text("Ой"),
+                  message: Text("""
+                        Что-то пошло не так,
+                    пожалуйста, попробуйте позже.
+                    """)
+                )
+            }
+        }
         
     }
 }
