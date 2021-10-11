@@ -15,8 +15,22 @@ struct ContentView: View {
             NavigationView {
                 VStack {
                     HStack {
-                        TextField("Город", text: $forecastListVM.location)
+                        TextField("Город", text: $forecastListVM.location,
+                                  onCommit: {
+                            forecastListVM.getWeatherForecast()
+                        })
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .overlay(
+                                Button(action: {
+                                    forecastListVM.location = ""
+                                    forecastListVM.getWeatherForecast()
+                                }) {
+                                    Image(systemName: "xmark.circle")
+                                        .foregroundColor(.gray)
+                                }
+                                    .padding(.horizontal),
+                                alignment: .trailing
+                            )
                         Button{
                             forecastListVM.getWeatherForecast()
                         } label: {

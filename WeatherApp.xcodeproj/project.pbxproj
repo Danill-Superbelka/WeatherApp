@@ -17,6 +17,7 @@
 		A54F1B9A27072CD10024405E /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54F1B9927072CD10024405E /* Weather.swift */; };
 		A59011802710DD85004689A7 /* ForecastListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A590117F2710DD85004689A7 /* ForecastListVM.swift */; };
 		A590118327133384004689A7 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A590118227133384004689A7 /* SDWebImageSwiftUI */; };
+		A59011852714732F004689A7 /* UIApplicationExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59011842714732F004689A7 /* UIApplicationExtention.swift */; };
 		A5AD8DC927103487001A9DEC /* WeatherForecastVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD8DC827103487001A9DEC /* WeatherForecastVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		A54F1B9727072CAC0024405E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		A54F1B9927072CD10024405E /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		A590117F2710DD85004689A7 /* ForecastListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastListVM.swift; sourceTree = "<group>"; };
+		A59011842714732F004689A7 /* UIApplicationExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtention.swift; sourceTree = "<group>"; };
 		A5AD8DC827103487001A9DEC /* WeatherForecastVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +52,7 @@
 		A54F1B772705D4270024405E = {
 			isa = PBXGroup;
 			children = (
+				A59011842714732F004689A7 /* UIApplicationExtention.swift */,
 				A54F1B822705D4270024405E /* WeatherApp */,
 				A54F1B812705D4270024405E /* Products */,
 			);
@@ -172,6 +175,7 @@
 				A54F1B882705D4270024405E /* ContentView.swift in Sources */,
 				A54F1B9A27072CD10024405E /* Weather.swift in Sources */,
 				A59011802710DD85004689A7 /* ForecastListVM.swift in Sources */,
+				A59011852714732F004689A7 /* UIApplicationExtention.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
