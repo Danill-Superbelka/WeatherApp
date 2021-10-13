@@ -19,6 +19,8 @@
 		A590118327133384004689A7 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = A590118227133384004689A7 /* SDWebImageSwiftUI */; };
 		A59011852714732F004689A7 /* UIApplicationExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59011842714732F004689A7 /* UIApplicationExtention.swift */; };
 		A5AD8DC927103487001A9DEC /* WeatherForecastVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AD8DC827103487001A9DEC /* WeatherForecastVM.swift */; };
+		A5F328422716ECDB00C3CAA6 /* CityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F328412716ECDB00C3CAA6 /* CityList.swift */; };
+		A5F328442716F94400C3CAA6 /* CityListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F328432716F94400C3CAA6 /* CityListVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		A590117F2710DD85004689A7 /* ForecastListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastListVM.swift; sourceTree = "<group>"; };
 		A59011842714732F004689A7 /* UIApplicationExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtention.swift; sourceTree = "<group>"; };
 		A5AD8DC827103487001A9DEC /* WeatherForecastVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastVM.swift; sourceTree = "<group>"; };
+		A5F328412716ECDB00C3CAA6 /* CityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityList.swift; sourceTree = "<group>"; };
+		A5F328432716F94400C3CAA6 /* CityListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				A54F1B832705D4270024405E /* AppDelegate.swift */,
 				A54F1B852705D4270024405E /* SceneDelegate.swift */,
 				A54F1B872705D4270024405E /* ContentView.swift */,
+				A5F328412716ECDB00C3CAA6 /* CityList.swift */,
+				A5F328432716F94400C3CAA6 /* CityListVM.swift */,
 				A5AD8DC827103487001A9DEC /* WeatherForecastVM.swift */,
 				A590117F2710DD85004689A7 /* ForecastListVM.swift */,
 				A54F1B9727072CAC0024405E /* APIService.swift */,
@@ -169,9 +175,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54F1B842705D4270024405E /* AppDelegate.swift in Sources */,
+				A5F328422716ECDB00C3CAA6 /* CityList.swift in Sources */,
 				A54F1B862705D4270024405E /* SceneDelegate.swift in Sources */,
 				A5AD8DC927103487001A9DEC /* WeatherForecastVM.swift in Sources */,
 				A54F1B9827072CAC0024405E /* APIService.swift in Sources */,
+				A5F328442716F94400C3CAA6 /* CityListVM.swift in Sources */,
 				A54F1B882705D4270024405E /* ContentView.swift in Sources */,
 				A54F1B9A27072CD10024405E /* Weather.swift in Sources */,
 				A59011802710DD85004689A7 /* ForecastListVM.swift in Sources */,
