@@ -15,7 +15,8 @@ class ForecastListVM: ObservableObject {
         let errorString: String
     }
     
-    @Published var forecast: [WeatherForecastDayliVM] = []
+    @Published var forecastDay: [WeatherForecastDayliVM] = []
+    @Published var forecastHour: [WeatherForecastHourlyVM] = []
     var appError: AppError? = nil
     //@Published var isLoading: Bool = false
     @AppStorage("location") var location = " "
@@ -33,7 +34,8 @@ class ForecastListVM: ObservableObject {
         //storageLocation = location
         UIApplication.shared.endEditing()
         if location == "" {
-            forecast = []
+            forecastDay = []
+            forecastHour = []
         } else {
            //isLoading = true
             let apiService = APIService.shared
@@ -50,7 +52,8 @@ class ForecastListVM: ObservableObject {
                         case .success(let forecast):
                            // self.isLoading = false
                             DispatchQueue.main.async {
-                                self.forecast = forecast.daily.map {WeatherForecastDayliVM(forecast: $0)}
+                                self.forecastDay = forecast.daily.map {WeatherForecastDayliVM(forecast: $0)}
+                                self.forecastHour = forecast.hourly.map {WeatherForecastHourlyVM(forecast: $0)}
                             }
                         case .failure(let apiError):
                            // self.isLoading = false
