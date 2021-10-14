@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 func convert(_ temp: Double) -> Double {
     let celsius = temp - 273.5
@@ -97,3 +98,4 @@ struct WeatherForecastHourlyVM {
         }
 
 }
+

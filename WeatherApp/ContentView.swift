@@ -28,71 +28,98 @@ struct ContentView: View {
                     .sheet(isPresented: $showingSheet){
                         CityList(city: self.$city, isPresented: self.$showingSheet)
                     }
-//                    NavigationLink(destination: CityList()) {
-//                        Text("City")
-//                            .font(.largeTitle)
-//                            .fontWeight(.ultraLight)
-//                            .foregroundColor(Color.black)
-//                            .multilineTextAlignment(.center)
-//
-//                    }
+                    //                    NavigationLink(destination: CityList()) {
+                    //                        Text("City")
+                    //                            .font(.largeTitle)
+                    //                            .fontWeight(.ultraLight)
+                    //                            .foregroundColor(Color.black)
+                    //                            .multilineTextAlignment(.center)
+                    //
+                    //                    }
                     
                     //                Text("\(forecastListVM.location)")
                     //                    .font(.largeTitle)
                     //                    .fontWeight(.ultraLight)
                     //                    .multilineTextAlignment(.center)
                     
-//                    Button{
-//                        forecastListVM.getWeatherForecast()
-//                    } label: {
-//                        Image(systemName: "magnifyingglass.circle.fill")
-//                            .font(.title3)
-//                    }
-                }
+                    //                    Button{
+                    //                        forecastListVM.getWeatherForecast()
+                    //                    } label: {
+                    //                        Image(systemName: "magnifyingglass.circle.fill")
+                    //                            .font(.title3)
+                    //                    }
+                } // HStack
                 
-//                HStack {
-//                    TextField("Город", text: $forecastListVM.location,
-//                              onCommit: {
-//                        forecastListVM.getWeatherForecast()
-//                    })
-//                        .textFieldStyle(RoundedBorderTextFieldStyle())
-//
-//                    //                Button{
-//                    //                    forecastListVM.getWeatherForecast()
-//                    //                } label: {
-//                    //                    Image(systemName: "magnifyingglass.circle.fill")
-//                    //                        .font(.title3)
-//                    //                }
-//                }
+                //                HStack {
+                //                    TextField("Город", text: $forecastListVM.location,
+                //                              onCommit: {
+                //                        forecastListVM.getWeatherForecast()
+                //                    })
+                //                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                //
+                //                    //                Button{
+                //                    //                    forecastListVM.getWeatherForecast()
+                //                    //                } label: {
+                //                    //                    Image(systemName: "magnifyingglass.circle.fill")
+                //                    //                        .font(.title3)
+                //                    //                }
+                //                }
                 List(forecastListVM.forecast, id: \.day) { day in
-                    Text(day.day)
-                        .fontWeight(.bold)
-                    HStack(alignment: .top){
+                    HStack(alignment: .center){
                         WebImage(url: day.weatherIconUrl)
                             .resizable()
-                            .placeholder{
-                                Image(systemName:"hourglass")
-                            }
-                            .scaledToFit()
-                            .frame(width: 75)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100)
+                            .padding(.all, 20)
                         VStack(alignment: .leading){
+                            Text(day.day)
+                                .font(.system(size: 26, weight: .bold, design: .default))
+                                .foregroundColor(.white)
                             HStack{
-                                Text("\(day.high)")
-                                Text("\(day.low)")
+                                Text(day.high)
+                                    .font(.system(size: 16, weight: .bold, design: .default))
+                                    .foregroundColor(.gray)
+                                Text(day.low)
+                                    .font(.system(size: 16, weight: .bold, design: .default))
+                                    .foregroundColor(.gray)
                             }
-                            Text("Облачность:")
-                            Text("Влажность:")
-                        }
+                            
+                        }.padding(.trailing, 20)
+                        Spacer()
                     }
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .background(Color(red: 32/255, green: 36/255, blue: 38/255))
+                    .modifier(CardModifier())
+                    .padding(.all, 10)
                 }
-                .listStyle(PlainListStyle())
+                //                    Text(day.day)
+                //                        .fontWeight(.bold)
+                //                    HStack(alignment: .top){
+                //                        WebImage(url: day.weatherIconUrl)
+                //                            .resizable()
+                //                            .placeholder{
+                //                                Image(systemName:"hourglass")
+                //                            }
+                //                            .scaledToFit()
+                //                            .frame(width: 75)
+                //                        VStack(alignment: .leading){
+                //                            HStack{
+                //                                Text("\(day.high)")
+                //                                Text("\(day.low)")
+                //                            }
+                //                            Text("Облачность:")
+                //                            Text("Влажность:")
+                //                        }
+                //                    }
             }
-            //.navigationTitle("\(forecastListVM.location)")//VStack
-            .navigationBarHidden(true)
-        } //NavigationView
-        
-    }
+            .listStyle(PlainListStyle())
+        }
+        //.navigationTitle("\(forecastListVM.location)")//VStack
+        .navigationBarHidden(true)
+    } //NavigationView
+    
 }
+
 
 
 
