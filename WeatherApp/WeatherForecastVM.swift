@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 func convert(_ temp: Double) -> Double {
     let celsius = temp - 273.5
@@ -17,7 +18,7 @@ struct WeatherForecastDayliVM {
     
     private static var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "E, MMM, d"
+        dateFormatter.dateFormat = "E, d"
         return dateFormatter
     }
     
@@ -37,6 +38,10 @@ struct WeatherForecastDayliVM {
     var day: String {
         return Self.dateFormatter.string(from: forecast.dt)
     }
+    
+//    var temp: String {
+//        return "\(Self.numberFormatter.string(for: convert(forecast.temp.day)) ?? "0")°"
+//    }
     
     var high: String {
         return "↑ \(Self.numberFormatter.string(for: convert(forecast.temp.max)) ?? "0")°"
@@ -63,7 +68,7 @@ struct WeatherForecastHourlyVM {
     
     private static var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "E, MMM, d"
+        dateFormatter.dateFormat = "HH, d"
         return dateFormatter
     }
     
@@ -97,3 +102,4 @@ struct WeatherForecastHourlyVM {
         }
 
 }
+
