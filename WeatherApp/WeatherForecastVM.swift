@@ -66,10 +66,16 @@ struct WeatherForecastDayliVM {
 struct WeatherForecastHourlyVM {
     let forecast: WeatherForecast.Hourly
     
-    private static var dateFormatter: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH, d"
-        return dateFormatter
+    private static var dateFormatterDay: DateFormatter {
+        let dateFormatterDay = DateFormatter()
+        dateFormatterDay.dateFormat = "HH"
+        return dateFormatterDay
+    }
+    
+    private static var dateFormatterHour: DateFormatter {
+        let dateFormatterHour = DateFormatter()
+        dateFormatterHour.dateFormat = "E"
+        return dateFormatterHour
     }
     
     private static var numberFormatter: NumberFormatter{
@@ -85,7 +91,11 @@ struct WeatherForecastHourlyVM {
     }
     
     var day: String {
-        return Self.dateFormatter.string(from: forecast.dt)
+        return Self.dateFormatterDay.string(from: forecast.dt)
+    }
+    
+    var hour: String{
+        return Self.dateFormatterHour.string(from: forecast.dt)
     }
     
     var temp: String{
