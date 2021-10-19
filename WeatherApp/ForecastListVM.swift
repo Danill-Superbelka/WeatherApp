@@ -46,7 +46,7 @@ class ForecastListVM: ObservableObject {
                 if let lat = placemark?.first?.location?.coordinate.latitude,
                    let lon = placemark?.first?.location?.coordinate.longitude {
                     print("Hello \(lat) \(lon)")
-                    apiService.getJSON(stringURL: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=current,minutely,alerts&appid=38b4a54648c28f3f6c543eef683881cd", dateDecodingStrategy: .secondsSince1970){
+                    apiService.getJSON(stringURL: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&exclude=current,minutely,alerts&appid=*********************", dateDecodingStrategy: .secondsSince1970){
                         (result: Result<WeatherForecast, APIService.ApiError>) in
                         switch result {
                         case .success(let forecast):
